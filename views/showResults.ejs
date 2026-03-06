@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Survey Results</h1>
+
+    <div class="charts-container">
+        <div class="chart-item">
+            <h2>Navigation Ease</h2>
+            <canvas id="navChart"></canvas>
+        </div>
+        <div class="chart-item">
+            <h2>Recommendation</h2>
+            <canvas id="recChart"></canvas>
+        </div>
+        <div class="chart-item">
+            <h2>Visual Rating</h2>
+            <canvas id="visualChart"></canvas>
+        </div>
+    </div>
+
+    <h2>Text Responses</h2>
+    <% if(results.textResponses){ %>
+        <% results.textResponses.forEach(function(item){ %>
+            <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+                <p><strong>Like/Dislike:</strong> <%= item.like_dislike %></p>
+                <p><strong>Improvement:</strong> <%= item.improvement %></p>
+            </div>
+        <% }); %>
+    <% } %>
+
+<script>
+function createChart(id, dataObj){
+    if(!dataObj) return;
+    new Chart(document.getElementById(id), {
+        type: 'pie',
+        data: {
+            labels: Object.keys(dataObj),
+            datasets: [{
+                data: Object.values(dataObj)
+            }]
+        }
+    });
+}
+
+createChart('navChart', <%- JSON.stringify(results.navigation || {}) %>);
+createChart('recChart', <%- JSON.stringify(results.rec || {}) %>);
+createChart('visualChart', <%- JSON.stringify(results.visual || {}) %>);
+</script>
+
+</body>
+</html>
