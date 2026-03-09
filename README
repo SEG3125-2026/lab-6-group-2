@@ -1,1 +1,7 @@
 Lab 6
+
+# Run Instructions
+1. Be in the root directory of project (lab-6-group-6)
+2. Type 'npm install' within terminal
+3. Type 'npm run start' to start frontend 
+4. Visit localhost:3000/niceSurvey
