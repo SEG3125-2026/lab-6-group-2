@@ -4,170 +4,179 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>UI Survey — Website Evaluation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <header class="container">
-      <h1>Website UI Evaluation Survey</h1>
-      <p class="subtitle">
-        Please help us evaluate the user interface of a website.
-      </p>
+    <header class="survey-header">
+      <div class="container">
+        <h1 class="display-4 fw-bold text-white">Website UI Evaluation Survey</h1>
+        <p class="lead text-white-50">
+          Please help us evaluate the user interface of a website.
+        </p>
+      </div>
     </header>
 
-    <main class="container card">
-      <section class="website">
-        <h2>Website Being Evaluated</h2>
-        <p>
-          Website link:
-          <a
-            class="link"
-            href="https://www.sephora.com/ca/en/?country_switch=ca&lang=en"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Sephora Canada
-          </a>
-        </p>
+    <main class="container my-5">
+      <section class="website-section mb-5">
+        <div class="card border-0 shadow-lg">
+          <div class="card-body p-4">
+            <h2 class="card-title mb-3 fw-bold">Website Being Evaluated</h2>
+            <p class="mb-3">
+              <strong>Website link:</strong>
+              <a
+                class="btn btn-sm btn-outline-primary"
+                href="https://www.sephora.com/ca/en/?country_switch=ca&lang=en"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit Sephora Canada →
+              </a>
+            </p>
 
-        <a
-          class="image-link"
-          href="https://www.sephora.com/ca/en/?country_switch=ca&lang=en"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="SephoraHomepage.png"
-            alt="Screenshot of the website UI being evaluated"
-          />
-        </a>
+            <a
+              class="image-link d-block"
+              href="https://www.sephora.com/ca/en/?country_switch=ca&lang=en"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/SephoraHomepage.png"
+                alt="Screenshot of the website UI being evaluated"
+                class="img-fluid rounded"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="survey-section">
+        <h2 class="mb-4 fw-bold">Survey Questions</h2>
+        <form action="/submitSurvey" method="POST">
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body">
+              <label class="form-label fw-bold mb-3">
+                1) What is one thing you like/dislike about the UI for Sephora?
+              </label>
+              <input id="task" name="task" type="text" class="form-control form-control-lg" placeholder="Share your feedback..." required />
+            </div>
+          </div>
+
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body">
+              <label class="form-label fw-bold mb-3">2) How easy was it to navigate the website?</label>
+              <div class="d-grid gap-2">
+                <label class="btn btn-outline-primary btn-lg text-start">
+                  <input type="radio" name="navigation" value="very_easy" required />
+                  Very easy
+                </label>
+                <label class="btn btn-outline-primary btn-lg text-start">
+                  <input type="radio" name="navigation" value="somewhat_easy" />
+                  Somewhat easy
+                </label>
+                <label class="btn btn-outline-primary btn-lg text-start">
+                  <input type="radio" name="navigation" value="neutral" />
+                  Neutral
+                </label>
+                <label class="btn btn-outline-primary btn-lg text-start">
+                  <input type="radio" name="navigation" value="somewhat_hard" />
+                  Somewhat hard
+                </label>
+                <label class="btn btn-outline-primary btn-lg text-start">
+                  <input type="radio" name="navigation" value="very_hard" />
+                  Very hard
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body">
+              <label class="form-label fw-bold mb-3">3) How likely are you to recommend the website?</label>
+              <div class="d-grid gap-2">
+                <label class="btn btn-outline-success btn-lg text-start">
+                  <input type="radio" name="rec" value="very_likely" required />
+                  Very Likely
+                </label>
+                <label class="btn btn-outline-success btn-lg text-start">
+                  <input type="radio" name="rec" value="somewhat_likely" />
+                  Somewhat Likely
+                </label>
+                <label class="btn btn-outline-success btn-lg text-start">
+                  <input type="radio" name="rec" value="neutral" />
+                  Neutral
+                </label>
+                <label class="btn btn-outline-success btn-lg text-start">
+                  <input type="radio" name="rec" value="somewhat_unlikely" />
+                  Somewhat unlikely
+                </label>
+                <label class="btn btn-outline-success btn-lg text-start">
+                  <input type="radio" name="rec" value="very_unlikely" />
+                  Very unlikely
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body">
+              <label for="visual" class="form-label fw-bold mb-3">4) How would you rate the visual design (colors, typography, spacing)?</label>
+              <select id="visual" name="visual" class="form-select form-select-lg" required>
+                <option value="" disabled selected>Select one</option>
+                <option value="excellent">Excellent</option>
+                <option value="good">Good</option>
+                <option value="okay">Okay</option>
+                <option value="poor">Poor</option>
+                <option value="very_poor">Very poor</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body">
+              <label class="form-label fw-bold mb-3">5) How would you improve the UI for Sephora?</label>
+              <input id="improvement" name="improvement" type="text" class="form-control form-control-lg" placeholder="Share your suggestions..." required />
+            </div>
+          </div>
+
+          <div class="card border-0 shadow-sm mb-4">
+            <div class="card-body">
+              <label class="form-label fw-bold mb-3">6) Select the features you liked from the UI of Sephora</label>
+              <div class="form-check mb-3">
+                <input type="checkbox" id="feature1" name="feature1" value="Navigation" class="form-check-input" />
+                <label class="form-check-label" for="feature1">Navigation</label>
+              </div>
+              <div class="form-check mb-3">
+                <input type="checkbox" id="feature2" name="feature2" value="Chat" class="form-check-input" />
+                <label class="form-check-label" for="feature2">Customer Service Chat</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" id="feature3" name="feature3" value="Favourite" class="form-check-input" />
+                <label class="form-check-label" for="feature3">My List</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-grid gap-2 mb-5">
+            <button type="submit" class="btn btn-primary btn-lg fw-bold">Submit Survey</button>
+          </div>
+        </form>
       </section>
     </main>
 
-    <section>
-      <h2>Survey</h2>
-      <form action="/submitSurvey" method="POST">
-        <div class="question">
-          <label>
-            1) What is one thing you like/dislike about the UI for Sephora
-          </label>
-          <input id="task" name="task" type="text" required />
-        </div>
-        <div class="question">
-          <fieldset>
-            <legend>2) How easy was it to navigate the website?</legend>
+    <footer class="bg-light border-top mt-5">
+      <div class="container py-4 text-center text-muted">
+        <p class="mb-0">
+          Website designed by Group 2: Deval Chovatia, Priya Dharmendra Kumar,
+          Darrell Nyakaana
+        </p>
+      </div>
+    </footer>
 
-            <label class="option">
-              <input
-                type="radio"
-                name="navigation"
-                value="very_easy"
-                required
-              />
-              Very easy
-            </label>
-
-            <label class="option">
-              <input type="radio" name="navigation" value="somewhat_easy" />
-              Somewhat easy
-            </label>
-
-            <label class="option">
-              <input type="radio" name="navigation" value="neutral" />
-              Neutral
-            </label>
-
-            <label class="option">
-              <input type="radio" name="navigation" value="somewhat_hard" />
-              Somewhat hard
-            </label>
-
-            <label class="option">
-              <input type="radio" name="navigation" value="very_hard" />
-              Very hard
-            </label>
-          </fieldset>
-        </div>
-        <div class="question">
-          <fieldset>
-            <legend>3) How likley are you to recommend the website?</legend>
-
-            <label class="option">
-              <input type="radio" name="rec" value="very_likely" required />
-              Very Likely
-            </label>
-
-            <label class="option">
-              <input type="radio" name="rec" value="somewhat_likely" />
-              Somewhat Likely
-            </label>
-
-            <label class="option">
-              <input type="radio" name="rec" value="neutral" />
-              Neutral
-            </label>
-
-            <label class="option">
-              <input type="radio" name="rec" value="somewhat_unlikely" />
-              Somewhat unlikely
-            </label>
-
-            <label class="option">
-              <input type="radio" name="rec" value="very_unlikely" />
-              Very unlikely
-            </label>
-          </fieldset>
-        </div>
-
-        <div class="question">
-          <label for="visual"
-            >4) How would you rate the visual design (colors, typography,
-            spacing)?</label
-          >
-          <select id="visual" name="visual" required>
-            <option value="" disabled selected>Select one</option>
-            <option value="excellent">Excellent</option>
-            <option value="good">Good</option>
-            <option value="okay">Okay</option>
-            <option value="poor">Poor</option>
-            <option value="very_poor">Very poor</option>
-          </select>
-        </div>
-
-        <div class="question">
-          <label> 5) How would you improve the UI for Sephora? </label>
-          <input id="improvement" name="improvement" type="text" required />
-        </div>
-
-        <div class="question">
-          <label>6) Select the features you liked from the UI of Sephora</label
-          ><br />
-          <input
-            type="checkbox"
-            id="feature1"
-            name="feature1"
-            value="Navigation"
-          />
-          <label for="feature1"> Navigation</label><br />
-          <input type="checkbox" id="feature2" name="feature2" value="Chat" />
-          <label for="feature2"> Customer Service Chat</label><br />
-          <input
-            type="checkbox"
-            id="feature3"
-            name="feature3"
-            value="Favourite"
-          />
-          <label for="feature3"> My List</label><br /><br />
-        </div>
-
-        <button type="submit">Submit Survey</button>
-        <footer>
-          <p>
-            Website designed by Group 2: Deval Chovatia, Priya Dharmendra Kumar,
-            Darrell Nyakaana
-          </p>
-        </footer>
-      </form>
-    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script

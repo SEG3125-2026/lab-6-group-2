@@ -1,0 +1,24 @@
+{
+  "navigation": {
+    "somewhat_easy": 1,
+    "neutral": 1
+  },
+  "rec": {
+    "very_likely": 1,
+    "somewhat_unlikely": 1
+  },
+  "visual": {
+    "okay": 1,
+    "good": 1
+  },
+  "textResponses": [
+    {
+      "like_dislike": "The Homepage",
+      "improvement": "Better colours"
+    },
+    {
+      "like_dislike": "Purchasing Area",
+      "improvement": "More Stuff"
+    }
+  ]
+}
